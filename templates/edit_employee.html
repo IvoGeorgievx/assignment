@@ -1,0 +1,21 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Edit Employee</title>
+
+</head>
+
+
+<body>
+<form method="post" action="{% url 'edit employee' pk=object.pk %}">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <button><a href="{% url 'edit employee' pk=object.pk %}"></a>Edit Employee</button>
+</form>
+
+</body>
+</html>

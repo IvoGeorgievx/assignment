@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="object-container">
+{% for object in object_list %}
+    <div class="object">
+        <h3>{{ object.first_name }} {{ object.last_name }}</h3>
+        <p>Address: {{ object.address }}</p>
+        <p>Phone: {{ object.phone }}</p>
+        <p>Department: {{ object.department }}</p>
+        <p>Position: {{ object.position }}</p>
+        <p>Salary: {{ object.salary }} BGN </p>
+        <a href="{% url 'edit employee' pk=object.pk %}" class="button">Edit Employee</a>
+        <a href="{% url 'delete employee' pk=object.pk %}" class="button">Delete Employee</a>
+    </div>
+
+{% endfor %}
+<div class="button-container">
+    <a href="{% url 'add employee' %}" class="button">Add Employee</a>
+    <a href="{% url 'sign out' %}" class="button">Logout</a>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>henlo</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Edit Employee</title>
+
+</head>
+
+
+<body>
+<form method="post" action="{% url 'sign out' %}">
+
+    {{ form }}
+    <h1>Are you sure you want to sign out?</h1>
+    <button>Sign out!</button>
+    {% csrf_token %}
+</form>
+</body>
+</html>

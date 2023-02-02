@@ -1,0 +1,23 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Delete employee</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Edit Employee</title>
+
+</head>
+
+
+<body>
+<form method="post" action="{% url 'delete employee' pk=object.pk %}">
+    {{ form.as_p }}
+    {% csrf_token %}
+    Are you sure you want to delete employee {{ object.first_name }} {{ object.last_name }} ?
+    <button><a href="{% url 'delete employee' pk=object.pk %}"></a>Delete</button>
+</form>
+
+</body>
+</html>
